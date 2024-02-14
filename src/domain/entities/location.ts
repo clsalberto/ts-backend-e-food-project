@@ -3,9 +3,6 @@ import { Entity } from '../shared/entity'
 export interface LocationProps {
   zipCode: string
   place: string
-  number: string
-  complement?: string
-  referencePoint?: string
   district: string
   city: string
   state: string
