@@ -1,5 +1,4 @@
 import { randomUUID } from 'node:crypto'
-
 export class Entity<T> {
   private _id: string
   public props: T

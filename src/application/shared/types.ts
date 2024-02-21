@@ -13,3 +13,13 @@ export enum ResponseHttp {
   NOT_FOUND = 404,
   INTERNAL_SERVER_ERROR = 500
 }
+
+export type ResponseTitle =
+  | 'OK'
+  | 'CREATED'
+  | 'BAD_REQUEST'
+  | 'UNAUTHORIZED'
+  | 'PAYMENT_REQUIRED'
+  | 'DATABASE_ERROR'
+  | 'NOT_FOUND'
+  | 'INTERNAL_SERVER_ERROR'

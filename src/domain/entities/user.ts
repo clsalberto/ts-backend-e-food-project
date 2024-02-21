@@ -2,10 +2,10 @@ import { Entity } from '../shared/entity'
 import { Replace } from '../shared/replace'
 
 export interface UserProps {
+  storeId: string
   name: string
   email: string
   password: string
-  storeId: string
   createdAt: Date
   active: boolean
 }
