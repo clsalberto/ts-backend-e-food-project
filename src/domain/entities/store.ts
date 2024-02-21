@@ -1,11 +1,12 @@
 import { Entity } from '../shared/entity'
 import { Replace } from '../shared/replace'
+import { Address } from './address'
 
 export interface StoreProps {
   name: string
   phone: string
   taxId: string
-  addressId: string
+  address: Address
   domain: string
   createdAt: Date
 }

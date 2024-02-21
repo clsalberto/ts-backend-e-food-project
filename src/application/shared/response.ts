@@ -1,23 +1,47 @@
-import { ResponseHttp, ResponseTitle } from './types'
+export enum EventType {
+  CREATE,
+  UPDATE
+}
+
+export enum ResponseHttp {
+  OK = 200,
+  CREATED = 201,
+  BAD_REQUEST = 400,
+  UNAUTHORIZED = 401,
+  PAYMENT_REQUIRED = 402,
+  DATABASE_ERROR = 403,
+  NOT_FOUND = 404,
+  INTERNAL_SERVER_ERROR = 500
+}
+
+export type ResponseTitle =
+  | 'OK'
+  | 'CREATED'
+  | 'BAD_REQUEST'
+  | 'UNAUTHORIZED'
+  | 'PAYMENT_REQUIRED'
+  | 'DATABASE_ERROR'
+  | 'NOT_FOUND'
+  | 'INTERNAL_SERVER_ERROR'
 
 interface ConfigOptions {
   title: ResponseTitle
   status: number
 }
 
-export function objectData<T = unknown>(args?: T): T | undefined {
-  return args
+export function returnData<T>(data: T): T {
+  return data
 }
 
 abstract class Notify {
-  protected data?: <T = unknown>(args?: T) => T
+  protected data?: <T = undefined>(data: T) => T
   protected message: string
   protected options: ConfigOptions
 
   constructor(
     message: string,
     options: ConfigOptions,
-    data?: <T = unknown>(args?: T) => T
+    data?: <T = undefined>() => T
   ) {
     this.message = message
     this.options = options
@@ -26,7 +50,7 @@ abstract class Notify {
 }
 
 export class Ok extends Notify {
-  static get(message: string, data?: <T = unknown>(args?: T) => T): Ok {
+  static get(message: string, data?: <T = undefined>() => T): Ok {
     return new Ok(
       message,
       {

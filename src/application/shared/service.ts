@@ -1,3 +1,3 @@
-export interface UseCase<Input, Output> {
+export interface Service<Input, Output> {
   execute(data: Input): Promise<Output>
 }

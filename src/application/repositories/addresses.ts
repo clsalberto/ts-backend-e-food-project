@@ -7,7 +7,8 @@ export interface AddressesRepository {
   findAddress(
     locationId: string,
     number: string,
-    complement: string
+    complement?: string,
+    referencePoint?: string
   ): Promise<Address>
   save(address: Address, update?: boolean): Promise<void>
 }

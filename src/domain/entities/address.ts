@@ -1,7 +1,8 @@
 import { Entity } from '../shared/entity'
+import { Location } from './location'
 
 export interface AddressProps {
-  locationId: string
+  location: Location
   number: string
   complement?: string
   referencePoint?: string
